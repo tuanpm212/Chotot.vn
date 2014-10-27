@@ -77,8 +77,6 @@
 					load = true;
 					loadImage();
 				});
-
-				//$(".img-row .img-block").draggable({containment: "parent"});
 			});
 
 			function loadImage() {
@@ -128,17 +126,30 @@
 					$box.find(firstRow).append(imgTemp);
 					$("html").getNiceScroll().resize();
 				};
-				$box.find(".img-block").draggable({
-					revert: "invalid",
-					cursor: "move",
-					connectToSortable: ".img-content",
-					helper: "clone",
-					drag: function(event, ui) {
+				$box.find(".img-row")
+				.sortable({
+					connectWith: ".img-row",
+					placeholder: "ui-state-highlight",
+					activate: function( event, ui ) {
 						$btnStop.hide();
 						$btnRun.show();
 						load = false;
+						//sortTable();
+					},
+				})
+				.disableSelection();
+			};
+
+			function sortTable() {
+				var $imgContent = $(".img-content"), itemRow = $imgContent.find(".img-row").length;
+				for (i = 0; i < itemRow; i++) {
+					itemRow = itemRow - 1;
+					var elem = $imgContent.find(".img-row").eq(itemRow);
+					if (elem.find(".img-block").length < 11) {
+						elem.addClass(itemRow);
+						alert("this");
 					}
-				});
+				};
 			};
 		</script>
 	</body>

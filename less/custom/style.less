@@ -54,7 +54,6 @@ html, body, .content {
 		-o-transition: all 300ms linear;
 
 		.img-row {
-			margin-bottom: @marginItem;
 
 			&:after, &:before {
 				content: " ";
@@ -64,17 +63,20 @@ html, body, .content {
 
 			.img-block {
 				margin-right: @marginItem;
+				margin-bottom: @marginItem;
 
 				&:last-child {
 					margin-right: 0;
 				}
 			}
 
-			.img-temp {
-				border: 1px dashed #333;
+			.img-temp, .ui-state-highlight {
+				border: 1px dashed #777;
 				width: @widthItem;
 				height: @heightItem;
 				float: left;
+				margin-right: @marginItem;
+				margin-bottom: @marginItem;
 				z-index: -1
 			}
 		}
