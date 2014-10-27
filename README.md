@@ -1,4 +1,4 @@
-Chotot
+Chotot.vn
 ======
 
-My assignment.
+PHP5+ with server Apache.
